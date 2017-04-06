@@ -1,0 +1,44 @@
+1.5T, Fetal:
+R1plas=0.44
+R1ery0=0.95
+r1_prime_dHb=0.29
+R2plas=1.6
+R2_dia_plus_R2_oxy=5.1
+R2_deoxy_minus_R2_oxy=-3.1
+w_dia_plus_w_oxy=-0.071
+wdeo_minus_w_oxy=-0.62
+tau=0.00227
+
+1.5T, Adult:
+R1plas=0.41
+R1ery0=0.94
+r1_prime_dHb=0.17
+R2plas=1.95
+R2_dia_plus_R2_oxy=4.9
+R2_deoxy_minus_R2_oxy=-2.0
+w_dia_plus_w_oxy=-0.044
+wdeo_minus_w_oxy=-0.69
+tau=0.0029
+
+3T, Fetal:
+R1plas=0.36
+R1ery0=0.77
+r1_prime_dHb=0.21
+R2plas=2.5
+R2_dia_plus_R2_oxy=9.1
+R2_deoxy_minus_R2_oxy=-13
+w_dia_plus_w_oxy=-0.021
+wdeo_minus_w_oxy=-0.603
+tau=0.0028
+
+3T, Adult:
+R1plas=0.383
+R1ery0=0.77
+r1_prime_dHb=0.21
+R2plas=2.6
+R2_dia_plus_R2_oxy=8.1
+R2_deoxy_minus_R2_oxy=19.3
+w_dia_plus_w_oxy=-0.044
+wdeo_minus_w_oxy=-0.69
+tau=0.0029
+
