@@ -59,6 +59,8 @@ def sO2_from_Hct_T2(coeff_list, Hct=0.45, T2=0.15):
     root_term=(K4*Hct**2+K3*Hct)**2-4*((K5*Hct-K5*Hct**2)*(K0+K1*Hct+K2*Hct**2-R2))
     sO2=((-K4*Hct**2-K3*Hct)+np.sqrt(root_term))/(2*(K5*Hct-K5*Hct**2))
     sO2_alt=((-K4*Hct**2-K3*Hct)-np.sqrt(root_term))/(2*(K5*Hct-K5*Hct**2))
+    output_str='solution 1: sO2=%.2f\nsolution 2: sO2=%.2f'%(sO2_alt, sO2)
+    print output_str
     sols=[sO2, sO2_alt]
     return sols    
 
@@ -68,6 +70,8 @@ def Hct_from_sO2_T1(coeff_list, sO2=0.85, T1=1.3):
      K0,K1,K2,K3,K4,K5,M0,M1,M2=[i for i in coeff_list]  
      R1=1.0/T1
      Hct=(R1-M0)/(M1+M2*sO2)
+     output_str='Hct=%.2f'%Hct
+     print output_str
      return Hct    
     
 def Hct_sO2_from_T1_T2(coeff_list, T1=1.5, T2=0.1): 
@@ -83,10 +87,19 @@ def Hct_sO2_from_T1_T2(coeff_list, T1=1.5, T2=0.1):
     C2 = K4*(M0 - R1)**2 + K3*(R1*M1 - M0*M1) + K1*(R1*M2 - M0*M2) + 2*K0*M1*M2 - 2*R2*M1*M2
     D1 = K5*(R1 - M0)**2
     D2 = K2*(M0 - R1)**2 + K1*(R1*M1 - M0*M1) + K0*M1**2 - R2*M1**2
-   
+
     Hct_sol=np.roots([A1,B1,C1,D1])
     sO2_sol=np.roots([A2,B2,C2,D2])
     
+    for jj in np.arange(3):
+        if ~np.isreal(sO2_sol[jj] or Hct_sol[jj]):
+            output_str='solution {0}: sO2 = {1:.2f} {2} {3:.2f}i, Hct = {4:.2f} {5} {6:.2f}i'.format(jj+1, sO2_sol[jj].real, '+-'[sO2_sol[jj].imag < 0], abs(sO2_sol[jj].imag), 
+                                                                                                           Hct_sol[jj].real, '+-'[Hct_sol[jj].imag < 0], abs(Hct_sol[jj].imag))
+        else:
+            output_str='solution {0}: sO2 = {1:.2f}, Hct = {2:.2f}'.format(jj+1, sO2_sol[jj].real, Hct_sol[jj].real)                                                                                        
+            
+        print output_str
+        
     return Hct_sol, sO2_sol    
     
 
