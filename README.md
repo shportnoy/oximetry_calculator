@@ -1,5 +1,5 @@
 # oximetry_calculator
-calculating hematocrit and oxygen saturation from T1 and T2 relaxation times
+Calculating hematocrit and oxygen saturation from T1 and T2 relaxation times using two-compartment model parameters.
 
 [![Binder](http://mybinder.org/badge.svg)](http://www.mybinder.org:/repo/shportnoy/oximetry_calculator)
 
