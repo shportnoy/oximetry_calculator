@@ -59,7 +59,7 @@ def sO2_from_Hct_T2(coeff_list, Hct=0.45, T2=0.15):
     sO2_alt=((-K4*Hct**2-K3*Hct)-np.sqrt(root_term))/(2*(K5*Hct-K5*Hct**2))
     output_str='solution 1: sO2=%.2f\nsolution 2: sO2=%.2f'%(sO2_alt, sO2)
     print output_str
-    sols=[sO2, sO2_alt]
+    sols=[sO2_alt, sO2]
     return sols    
 
 def Hct_from_sO2_T1(coeff_list, sO2=0.85, T1=1.3):
