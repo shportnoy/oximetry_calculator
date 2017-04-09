@@ -5,7 +5,7 @@ Created on Thu Apr  6 19:16:51 2017
 @author: sportnoy
 """
 import numpy as np
-np.seterr(all=None)
+np.seterr(all='ignore')
 from ipywidgets import *
 import pylab as plt
 import matplotlib
