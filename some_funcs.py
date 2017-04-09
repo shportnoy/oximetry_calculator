@@ -5,12 +5,12 @@ Created on Thu Apr  6 19:16:51 2017
 @author: sportnoy
 """
 import numpy as np
+warnings.filterwarnings('ignore')
 np.seterr(all='ignore')
 from ipywidgets import *
 import pylab as plt
 import matplotlib
 import warnings
-warnings.filterwarnings('ignore')
 
 #Read in parameter text file ('par_values.txt')
 f = open('par_values.txt')
