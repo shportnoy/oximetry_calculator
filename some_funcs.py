@@ -5,7 +5,7 @@ Created on Thu Apr  6 19:16:51 2017
 @author: sportnoy
 """
 import numpy as np
-np.seterr(divide='ignore', invalid='ignore')
+np.seterr(all=None)
 from ipywidgets import *
 import pylab as plt
 import matplotlib
