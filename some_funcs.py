@@ -9,6 +9,8 @@ np.seterr(all='ignore')
 from ipywidgets import *
 import pylab as plt
 import matplotlib
+import warnings
+warnings.filterwarnings('ignore')
 
 #Read in parameter text file ('par_values.txt')
 f = open('par_values.txt')
