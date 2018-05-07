@@ -56,7 +56,7 @@ def display_widgets():
         continuous_update=False,
         orientation='horizontal',
         readout=True,
-        readout_format='i',
+        readout_format='',
         slider_color='white'
         )
         
@@ -154,11 +154,11 @@ def fetch_model_pars(param_file_dict, blood_type='Fetal', field_strength='3T'):
        strength (1.5T or 3T)"""
     
     if (blood_type not in ['Fetal', 'Adult']):
-        print "input parameter blood_type must be 'Adult' or 'Fetal'"
+        print("input parameter blood_type must be 'Adult' or 'Fetal'")
         return
         
     if (field_strength not in ['1.5T', '3T']):
-        print "input parameter field_strength must be '1.5T' or '3T'"
+        print("input parameter field_strength must be '1.5T' or '3T'")
         return    
      
     
@@ -176,10 +176,10 @@ def fetch_model_pars(param_file_dict, blood_type='Fetal', field_strength='3T'):
         par_dict['field']=1.5
 
     output_str='Blood type = %s'%blood_type 
-    print output_str
+    print(output_str)
     
     output_str='Field strength = %s'%field_strength
-    print output_str
+    print(output_str)
    
     
     return par_dict
@@ -201,7 +201,7 @@ def calc_coeffs(par_dict, tau_180=0.016):
     mu=tau*(1-(2*tau/tau_180)*np.tanh(tau_180/(2*tau)))
    
     output_str='Refocusing interval = %.0f ms'%(1000*tau_180)
-    print output_str
+    print(output_str)
     
     K0 = R2plas
     K1 = R2_dia_oxy + R2_de_oxy + mu*(w_dia_oxy + w_de_oxy)**2
@@ -227,7 +227,7 @@ def sO2_from_Hct_T2(coeff_list, Hct=0.45, T2=0.15):
     sO2_alt=((-K4*Hct**2-K3*Hct)-np.sqrt(root_term))/(2*(K5*Hct-K5*Hct**2))
     if not isinstance(Hct,np.ndarray):  
         output_str='solution 1: sO2=%.2f\nsolution 2: sO2=%.2f'%(sO2_alt, sO2)
-        print output_str
+        print(output_str)
     sols=[sO2, sO2_alt]
     return sols    
 
@@ -239,7 +239,7 @@ def Hct_from_sO2_T1(coeff_list, sO2=0.85, T1=1.3):
      Hct=(R1-M0)/(M1+M2*sO2)
      if not isinstance(sO2,np.ndarray):
          output_str='Hct=%.2f'%Hct
-         print output_str
+         print(output_str)
      return Hct    
     
 def Hct_sO2_from_T1_T2(coeff_list, T1=1.5, T2=0.1): 
@@ -266,7 +266,7 @@ def Hct_sO2_from_T1_T2(coeff_list, T1=1.5, T2=0.1):
         else:
             output_str='solution {0}: sO2 = {1:.2f}, Hct = {2:.2f}'.format(jj+1, sO2_sol[jj].real, Hct_sol[jj].real)                                                                                        
             
-        print output_str
+        print(output_str)
         
     return Hct_sol, sO2_sol    
 
